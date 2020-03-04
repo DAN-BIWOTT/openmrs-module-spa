@@ -66,6 +66,7 @@ Cookie[] cookies = request.getCookies();
   </c:if>
 </head>
 
+
 <body>
   <c:if test="${requestScope.spaBodyContentUrl != null }">
     <c:import url="${requestScope.spaBodyContentUrl}" />
