@@ -66,14 +66,13 @@ public class VerifyUrl {
 
     // ABSOLUTE STRING TEST
     public boolean stringTest(String _testUrl) {
-
+        String cleanUrl = cleanInput(_testUrl);
         boolean returnValue = false;
         boolean temp_value = false;
         String[] whiteListStringUrl = getStringUrls();
         for (String s : whiteListStringUrl) {
-            temp_value = s.equalsIgnoreCase(_testUrl);
+            temp_value = s.equalsIgnoreCase(cleanUrl);
             if (temp_value == true) {
-                System.out.println("String test success");
                 returnValue = true;
                 break;
             }
@@ -82,6 +81,15 @@ public class VerifyUrl {
     }
 
     // ::::::::::::::::::: Helper functions :::::::::::::::::::::::::://
+    // STRIP *
+    public String cleanInput(String _testurl) {
+        try {
+            String cleanUlr = _testurl.substring(0, _testurl.indexOf('*'));
+            return cleanUlr;
+        } catch (Exception e) {
+            return _testurl;
+        }
+    }
 
     // SEPERATE THE INPUT
 
